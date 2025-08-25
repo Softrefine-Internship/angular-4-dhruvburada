@@ -20,3 +20,7 @@ tr.highlight-row > th {
   background-color: red;
   color: white; /* optional: for better contrast */
 }
+
+.text-nowrap {
+  white-space: nowrap;
+}
