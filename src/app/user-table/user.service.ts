@@ -4,7 +4,7 @@ import { User } from "./User.model";
 @Injectable()
 export class UserService {
     userData!: User[];
-
+    searchResults!: User[];
     async getUserData(): Promise<User[]> {
         const response = await fetch("https://dummyjson.com/users");
         const data = await response.json();
@@ -25,8 +25,8 @@ export class UserService {
         return this.userData;
     }
 
-    sortBy(fieldName: keyof User): void {
-        this.userData.sort((a, b) => {
+    sortBy(data: User[], fieldName: keyof User): User[] {
+        data.sort((a: any, b: any) => {
             const valA = a[fieldName];
             const valB = b[fieldName];
 
@@ -40,6 +40,8 @@ export class UserService {
 
             return 0;
         });
+
+        return data;
     }
 
     searchValue(searchTerm: string): User[] {
