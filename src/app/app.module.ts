@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { UserTableComponent } from './user-table/user-table.component';
+import { UserService } from './user-table/user.service';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { UserTableComponent } from './user-table/user-table.component';
     UserTableComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

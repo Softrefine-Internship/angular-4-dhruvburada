@@ -1,30 +1,127 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Age</th>
-      <th scope="col">Gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container my-4 header">
+  <div
+    class="mb-3 d-flex flex-wrap gap-1 justify-content-between align-items-center margin-auto"
+  >
+    <input
+      type="text"
+      class="form-control searchbar"
+      placeholder="Search users..."
+      [(ngModel)]="searchTerm"
+      (input)="SearchValue()"
+    />
+    `
+    <div class="d-flex gap-2">
+      <div>sort By</div>
+      <select
+        class="form-select"
+        #selectcolumn
+        (change)="ChangeOrder(selectcolumn.value)"
+      >
+        <!-- <option disabled selected value="">Sort by...</option> -->
+        <option value="id" selected>Id</option>
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="age">Age</option>
+        <option value="gender">Gender</option>
+        <option value="birthDate">Birth Date</option>
+        <option value="email">Email</option>
+        <option value="username">Username</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 📋 Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let index = index">
+          <th
+            scope="row"
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.id }}
+          </th>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.firstName }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.lastName }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.age }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.gender }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.birthDate }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.email }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.phone }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.username }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color': index % 2 == 0 ? 'white' : 'gray'
+            }"
+          >
+            {{ user.password }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,7 +1,5 @@
-.form-control {
-  &.searchbar {
-    max-width: 300px;
-  }
+.form-control.searchbar {
+  max-width: 300px;
 }
 
 .form-select {
