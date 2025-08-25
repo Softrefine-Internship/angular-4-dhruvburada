@@ -25,7 +25,7 @@ export class UserTableComponent implements AfterViewInit {
 
   ChangeOrder(value: string): void {
 
-    this.userService.sortBy(value as keyof User)
+    this.userService.sortBy(this.users, value as keyof User)
   }
 
   SearchValue() {
