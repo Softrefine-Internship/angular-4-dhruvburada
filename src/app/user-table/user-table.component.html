@@ -30,7 +30,6 @@
     </div>
   </div>
 
-  <!-- 📋 Table -->
   <div class="table-responsive">
     <table class="table table-bordered table-hover align-middle shadow-sm">
       <thead class="table-dark">
@@ -52,73 +51,83 @@
           <th
             scope="row"
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.id }}
           </th>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.firstName }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.lastName }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.age }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.gender }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.birthDate }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.email }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.phone }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.username }}
           </td>
           <td
             [ngStyle]="{
-              'background-color': index % 2 == 0 ? 'white' : 'gray'
+              'background-color': index % 2 == 0 ? 'white' : '#d3d3d3'
             }"
           >
             {{ user.password }}
+          </td>
+        </tr>
+
+        <tr *ngIf="!loading && noData" class="text-center">
+          <td colspan="12">No Data Found</td>
+        </tr>
+
+        <tr *ngIf="loading" class="text-center">
+          <td colspan="12">
+            <div class="spinner-border" role="status"></div>
           </td>
         </tr>
       </tbody>

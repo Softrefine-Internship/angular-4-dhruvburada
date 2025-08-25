@@ -10,11 +10,16 @@ import { UserService } from './user.service';
 export class UserTableComponent implements AfterViewInit {
   users!: User[];
   searchTerm!: string;
-
+  noData: boolean = false;
+  loading: boolean = true;
   selectedColumn: string = "Sort By..";
   constructor(private userService: UserService) { }
   ngAfterViewInit(): void {
-    this.userService.getUserData().then((data) => this.users = data);
+    this.userService.getUserData().then((data) => {
+      this.users = data
+      this.loading = false;
+      this.noData = data.length === 0;
+    });
 
   }
 
@@ -25,6 +30,7 @@ export class UserTableComponent implements AfterViewInit {
 
   SearchValue() {
     this.users = this.userService.searchValue(this.searchTerm);
+    this.noData = this.users.length === 0
   }
 
 }
